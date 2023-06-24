@@ -1,3 +1,4 @@
+
 data "aws_ami" "ubuntu" {
   most_recent = true
 
@@ -24,6 +25,7 @@ resource "aws_instance" "web" {
   instance_type = "t3.micro"
   key_name =  aws_key_pair.deployer.key_name
   user_data = data.template_file.init.rendered
+  vpc_security_group_ids = [aws_security_group.web_sg.id]
 
   tags = {
     Name = "wordpress-server"

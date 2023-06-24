@@ -1,4 +1,5 @@
 resource "aws_db_instance" "default" {
+    vpc_security_group_ids = [aws_security_group.db_sg.id] # reference to the security group resource above
   allocated_storage    = 10
   db_name              = "mydb"
   engine               = "mysql"

@@ -33,3 +33,28 @@ resource "aws_security_group" "web_sg" {
     Name = "web_sg"
   }
 }
+
+# New RDS security group
+resource "aws_security_group" "db_sg" {
+  name        = "db_sg"
+  description = "Allow inbound traffic from web_sg to RDS"
+
+  ingress {
+    description = "MySQL from web_sg"
+    from_port   = 3306
+    to_port     = 3306
+    protocol    = "tcp"
+    security_groups = [aws_security_group.web_sg.id] # allows only web_sg to access RDS
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name = "db_sg"
+  }
+}

@@ -66,3 +66,8 @@ variable "db_security_group_name" {
   
 }
   
+
+variable "key_pair_name" {
+  description = "key pair name"
+  default = "wp-key"
+}

@@ -13,6 +13,7 @@ db_password = "foobarbaz"
 db_parameter_group_name = "default.mysql5.7"
 instance_security_group_name = "wordpress-sg"
 db_security_group_name  =   "wordpress-db-sg"
+key_pair_name = "wp1"
 }
 
 module "wordpress-installation2" {
@@ -30,6 +31,7 @@ db_password = "foobarbaz"
 db_parameter_group_name = "default.mysql5.7"
 instance_security_group_name = "wordpress-sg2"
 db_security_group_name  =   "wordpress-db-sg2"
+key_pair_name = "wp2"
 }
 
 module "wordpress-installation3" {
@@ -47,4 +49,5 @@ db_password = "foobarbaz"
 db_parameter_group_name = "default.mysql5.7"
 instance_security_group_name = "wordpress-sg3"
 db_security_group_name  =   "wordpress-db-sg3"
+key_pair_name = "wp3"
 }
